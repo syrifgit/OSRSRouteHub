@@ -1,0 +1,2802 @@
+{
+  "id": "2aed0c30-bc6a-4ca1-8e11-9ba5361fb660",
+  "name": "Starting guide",
+  "taskType": "LEAGUE_5",
+  "author": "LAEF",
+  "description": "",
+  "completed": [],
+  "sections": [
+    {
+      "id": "9ea02a61-0066-4e24-bf1c-0bc8a2a6491a",
+      "name": "Starting out: Money & Early Hunter",
+      "description": "",
+      "items": [
+        {
+          "taskId": 2645,
+          "note": "Complete the Tutorial\nPick your first Relic\nClaim a Spade, Impling jar and Strange device from Tutor\nEquip Dramen Staff & arrows\nComplete Yama Agility Course",
+          "location": {
+            "x": 1665,
+            "y": 3139,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 2647
+        },
+        {
+          "taskId": 1902,
+          "location": {
+            "x": 1653,
+            "y": 3136,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "31617e45-369b-4471-9a10-085bc4ff7a88",
+            "label": "Bank",
+            "icon": 1453,
+            "description": "Deposit all"
+          },
+          "location": {
+            "x": 1648,
+            "y": 3119,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1764,
+          "location": {
+            "x": 1668,
+            "y": 3107,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 2648
+        },
+        {
+          "taskId": 4821,
+          "note": "Get 20 Thieving\nFill inventory with cakes",
+          "location": {
+            "x": 1688,
+            "y": 3112,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 2649
+        },
+        {
+          "taskId": 2650
+        },
+        {
+          "customItem": {
+            "id": "959c0b22-630f-423f-8690-15771710649a",
+            "label": "General store",
+            "icon": 1448,
+            "description": "Sell 26 cakes\nKeep 1 cake\nBuy bird snare & 3 box traps\nBuy hammer, chisel & knife"
+          },
+          "location": {
+            "x": 1670,
+            "y": 3120,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 3795,
+          "location": {
+            "x": 1679,
+            "y": 3116,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "5ece74e6-05ad-44a4-9067-abe9cffe6b59",
+            "label": "The Flaming Arrow",
+            "icon": 1479,
+            "description": "Buy a stew\nBuy 8 jugs of wine"
+          },
+          "location": {
+            "x": 1714,
+            "y": 3115,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1191,
+          "location": {
+            "x": 1653,
+            "y": 3102,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "b0c63cb8-4cad-4147-a3f2-48fe3303e8e1",
+            "label": "Floria's Fashion",
+            "icon": 1475,
+            "description": "Buy a Green cape\nEquip it\nEveryone should now know that you're the GOAT\nDon't forget to say 'nice cape' if you see another one"
+          },
+          "location": {
+            "x": 1659,
+            "y": 3101,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "b7098e66-791a-4914-8176-b8d43d519fe6",
+            "label": "Bank",
+            "icon": 1453,
+            "description": "Deposit all\nTake coins\nKnife & Bucket\nBow\nAir & mind runes\n(Pickaxe & axe)"
+          },
+          "location": {
+            "x": 1648,
+            "y": 3120,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 5906,
+          "note": "Drop bucket",
+          "location": {
+            "x": 1587,
+            "y": 3120,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 5905,
+          "location": {
+            "x": 1587,
+            "y": 3113,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 2641
+        },
+        {
+          "customItem": {
+            "id": "2510fe04-f7ea-4e93-8e09-5858c824f6eb",
+            "label": "Buy a rake",
+            "icon": 1506,
+            "description": ""
+          },
+          "location": {
+            "x": 1594,
+            "y": 3104,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "69090f71-f50f-492e-9da9-6961aadd0023",
+            "label": "Rake a patch",
+            "icon": 1501,
+            "description": "Leprechaun the rake"
+          },
+          "location": {
+            "x": 1590,
+            "y": 3099,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "68e1f0da-3d7a-4aff-86f5-b7948741f1e3",
+            "label": "Mine 14 copper ore",
+            "icon": 1456,
+            "description": "Keep 9 copper"
+          },
+          "location": {
+            "x": 1481,
+            "y": 3087,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "42a72670-0fe8-4057-9554-edf878f4b36b",
+            "label": "Mine 14 tin ore",
+            "icon": 1456,
+            "description": "Keep 9 tin"
+          },
+          "location": {
+            "x": 1481,
+            "y": 3087,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "426cda17-9f66-466f-847e-932b9f559d8d",
+            "label": "Quetzal to Civitas",
+            "icon": 1504,
+            "description": ""
+          },
+          "location": {
+            "x": 1586,
+            "y": 3055,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1192,
+          "location": {
+            "x": 1699,
+            "y": 3143,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 3904,
+          "location": {
+            "x": 1707,
+            "y": 3087,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "13552da9-4365-4244-be04-9053fe81bf2b",
+            "label": "Activate prayer near altar",
+            "icon": 1467,
+            "description": ""
+          },
+          "location": {
+            "x": 1707,
+            "y": 3087,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 3903,
+          "location": {
+            "x": 1714,
+            "y": 3087,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "1a643a1c-3767-4c04-8937-cc39952a8c8b",
+            "label": "Chop 2 logs",
+            "icon": 1519,
+            "description": "Fletch 15 shafts"
+          },
+          "location": {
+            "x": 1719,
+            "y": 3089,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "70a7543c-9de1-4e0a-8f36-568390f897ad",
+            "label": "Smelt 9 bronze bars",
+            "icon": 1457,
+            "description": ""
+          },
+          "location": {
+            "x": 1770,
+            "y": 3113,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "6cf1414e-2952-4198-a66b-6fb5e329827e",
+            "label": "Bank",
+            "icon": 1453,
+            "description": "Deposit all\nTake coins"
+          },
+          "location": {
+            "x": 1780,
+            "y": 3094,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1780,
+          "note": "Buy glassblowing pipe\nShears\nBanana\n10 Molten glass\n10 Soda ash",
+          "location": {
+            "x": 1742,
+            "y": 3133,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "6392667f-2e4d-4266-b404-da44ea0cad52",
+            "label": "Make molten glass",
+            "icon": 1488,
+            "description": ""
+          },
+          "location": {
+            "x": 1770,
+            "y": 3112,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "b6a2a5bc-cbb3-4163-b056-94cec1050969",
+            "label": "Artima's Crafting Supplies",
+            "icon": 1471,
+            "description": "Buy amulet mould\nBuy ring mould"
+          },
+          "location": {
+            "x": 1766,
+            "y": 3102,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "94e90d0a-250f-430c-b73e-8f3625dee2b8",
+            "label": "Bank",
+            "icon": 1453,
+            "description": "Deposit all\nTake coins"
+          },
+          "location": {
+            "x": 1780,
+            "y": 3094,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "5d00d847-ddc5-48b5-8e58-8baee2854a88",
+            "label": "Trader Crewmember",
+            "icon": 1448,
+            "description": "Buy 10 more sand & soda ash\nAnd 1 Seaweed"
+          },
+          "location": {
+            "x": 1742,
+            "y": 3133,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "f0eed87c-40e5-429a-bca4-dc55d8bf9b56",
+            "label": "Make molten glass",
+            "icon": 1488,
+            "description": ""
+          },
+          "location": {
+            "x": 1770,
+            "y": 3112,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "ef6e5fce-db8b-42bf-88f1-efa9e28c2b0d",
+            "label": "Bank",
+            "icon": 1453,
+            "description": "Deposit all\nTake coins\n9 Bronze bars\nHammer & Logs\nTinderbox\n(Small fishig net)"
+          },
+          "location": {
+            "x": 1780,
+            "y": 3094,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "4c58cc2d-5801-4526-9089-37bca2fb9a9e",
+            "label": "Make 7 bronze maces",
+            "icon": 1458,
+            "description": "Make Bronze full helm\nSell the maces"
+          },
+          "location": {
+            "x": 1778,
+            "y": 3059,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1833,
+          "note": "Get 15 Fishing\nBurn some Logs\nCook 5 food in a row",
+          "location": {
+            "x": 1775,
+            "y": 2994,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1835
+        },
+        {
+          "taskId": 1788
+        },
+        {
+          "taskId": 1924,
+          "location": {
+            "x": 1680,
+            "y": 3143,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "b7c02cf8-9cae-44af-bb1f-0fcb0055198b",
+            "label": "Run to Quetzal",
+            "icon": 1504,
+            "description": ""
+          },
+          "location": {
+            "x": 1699,
+            "y": 3143,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "7f71324b-136d-4261-bf36-7d67595274b7",
+            "label": "Quetzal to Aldarin",
+            "icon": 1504,
+            "description": ""
+          },
+          "location": {
+            "x": 1389,
+            "y": 2900,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 5032,
+          "location": {
+            "x": 1396,
+            "y": 2905,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1215,
+          "note": "3rd floor\nFind out why he was banished",
+          "location": {
+            "x": 1389,
+            "y": 2916,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "e18bd5e4-8917-4efb-9b64-4895da8dd19a",
+            "label": "Bank",
+            "icon": 1453,
+            "description": "Deposit all\nGet coins\nChisel\n20 molten glass\nGlassblowing pipe"
+          },
+          "location": {
+            "x": 1402,
+            "y": 2924,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "5f3b6e1c-bfdd-4d5e-9191-ab41370fefd9",
+            "label": "Run to Gem store",
+            "icon": 1470,
+            "description": "Make empty oil lamps\nGet 20 Crafting\nDrop them"
+          },
+          "location": {
+            "x": 1428,
+            "y": 2973,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 2651,
+          "note": "Cut and sell back\nBuy 32 Emeralds\nCut and sell back\nBuy 573 Rubies\nCut and sell back",
+          "location": {
+            "x": 1428,
+            "y": 2973,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 2652
+        },
+        {
+          "taskId": 2653
+        },
+        {
+          "taskId": 2654,
+          "note": "Keep 1 of each gem\n356k coins"
+        },
+        {
+          "customItem": {
+            "id": "869a9aed-4780-46f2-8179-339a54dbedcd",
+            "label": "Buy 10 Ixcoztic white",
+            "icon": 1448,
+            "description": ""
+          },
+          "location": {
+            "x": 1361,
+            "y": 2923,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "118a2468-551e-4c20-bac3-a83ba39cad1e",
+            "label": "Quetzal to Auburnvale",
+            "icon": 1504,
+            "description": ""
+          },
+          "location": {
+            "x": 1411,
+            "y": 3364,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "2f0bad6e-5594-4dcb-b67e-3bcbb97a4a27",
+            "label": "Bank",
+            "icon": 1453,
+            "description": "Deposit all\nTake coins\nShears & Knife\nBird snare & Tinderbox\n(Bronze axe)"
+          },
+          "location": {
+            "x": 1416,
+            "y": 3353,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1923,
+          "note": "Buy a Staff of Fire",
+          "location": {
+            "x": 1412,
+            "y": 3344,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "faef9c77-c835-47f7-8853-6ee309dfc488",
+            "label": "Buy a Steel axe",
+            "icon": 1451,
+            "description": ""
+          },
+          "location": {
+            "x": 1402,
+            "y": 3342,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "a90ea033-6c37-4691-93fe-160d45c4e9e4",
+            "label": "General Store",
+            "icon": 1448,
+            "description": "Buy a torch\nLight and drop it"
+          },
+          "location": {
+            "x": 1379,
+            "y": 3352,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "91678a8c-1304-4a8b-9583-c3560a23649e",
+            "label": "Sawmill",
+            "icon": 1516,
+            "description": "Chop a log\nMake a plank\nDrop it"
+          },
+          "location": {
+            "x": 1395,
+            "y": 3370,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "11bdd4a8-8da5-41e8-8228-9d45cadb7595",
+            "label": "Unlock your Tier 2 Relic",
+            "icon": 1454,
+            "description": ""
+          },
+          "location": {
+            "x": 1395,
+            "y": 3369,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "273dfad4-6f85-4bb3-8fc6-2e547b3720eb",
+            "label": "Quetzal to Tal Teklan",
+            "icon": 1504,
+            "description": "Skip with abundance"
+          },
+          "location": {
+            "x": 1226,
+            "y": 3089,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "23ad09fb-64f5-4c8b-a057-feda1ce065df",
+            "label": "Get 9 Hunter",
+            "icon": 1511,
+            "description": "Skip with abundance\nCatch 4 Crimson swifts\nBury all bones"
+          },
+          "location": {
+            "x": 1373,
+            "y": 3136,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1190,
+          "note": "Skip with Abundance",
+          "location": {
+            "x": 1355,
+            "y": 3290,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "d27fce1b-361d-47db-8991-09216b1dee10",
+            "label": "Get 17 Hunter",
+            "icon": 1511,
+            "description": "If crowded, catch in Aldarin\nCatch 5 Copper longtails\nBury all bones"
+          },
+          "location": {
+            "x": 1350,
+            "y": 3346,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 5013,
+          "note": "Shear a Sheep\nClaim a Butterfly net",
+          "location": {
+            "x": 1431,
+            "y": 3324,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1872,
+          "note": "Leave Puro Puro\nPick some Wheat"
+        },
+        {
+          "taskId": 3900,
+          "note": "AIS to Auburnvale"
+        },
+        {
+          "customItem": {
+            "id": "347a6b8e-4309-4d88-88fa-9718f6d6a0a6",
+            "label": "Bank",
+            "icon": 1453,
+            "description": "Deposit all\nGet coins\nSteel axe\nTinderbox\nKnife & Wool\nButterfly net\n(Bronze axe)"
+          },
+          "location": {
+            "x": 1416,
+            "y": 3353,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 4826,
+          "note": "Drop Bronze axe",
+          "location": {
+            "x": 1396,
+            "y": 3366,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "1783c30a-7bd1-4307-b576-eb2d965bcc53",
+            "label": "Get 15 Fletching",
+            "icon": 1519,
+            "description": "Arrowshafts"
+          },
+          "location": {
+            "x": 1396,
+            "y": 3366,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "c52940a5-6f3c-472c-9bad-cc1a49993f8e",
+            "label": "Get 25 Hunter",
+            "icon": 1511,
+            "description": "Catch 21 Ruby harvests\n2 Wild kebbits at 23\nKeep Kebbit claws\nBury all bones"
+          },
+          "location": {
+            "x": 1389,
+            "y": 3393,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "8d2b49b8-c069-4ef6-b74a-a9501b290704",
+            "label": "Get a forestry kit",
+            "description": "Abundance Activate Statue of Ralos now\n"
+          },
+          "location": {
+            "x": 1351,
+            "y": 3299,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1865,
+          "note": "Fletch 1000 Arrowshafts\nMake an Oak shortbow (u)",
+          "location": {
+            "x": 1375,
+            "y": 3299,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "a48ed7bf-75ab-4b31-95a2-be6d82ed7a11",
+            "label": "Spin some wool",
+            "icon": 1483,
+            "description": ""
+          },
+          "location": {
+            "x": 1375,
+            "y": 3315,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "89dea76e-d2de-4a85-a303-7a7d7ec67470",
+            "label": "Get 30 Woodcutting",
+            "icon": 1519,
+            "description": "Chop 1 Willow logs\nAchieve 250 total level"
+          },
+          "location": {
+            "x": 1380,
+            "y": 3323,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "78a121fb-635a-4493-9cc6-08fe61cf169a",
+            "label": "Bank",
+            "icon": 1453,
+            "description": "Deposit all\nTake coins\nButterfly net\n3 box traps"
+          },
+          "location": {
+            "x": 1386,
+            "y": 3309,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "169045c2-edf9-4670-9b8b-345c4f601018",
+            "label": "Follow Mountain Guide",
+            "icon": 1503,
+            "description": "Run west to Mons Gratia"
+          },
+          "location": {
+            "x": 1359,
+            "y": 3309,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 2343,
+          "note": "51 butterflies for 35 Hunter",
+          "location": {
+            "x": 1444,
+            "y": 3236,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 2079,
+          "note": "32 butterflies for 39 Hunter",
+          "location": {
+            "x": 1444,
+            "y": 3235,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "c918e05c-1d37-4e02-a0cb-b9dd46a4b20e",
+            "label": "Quetzal to Hunter Guild",
+            "icon": 1504,
+            "description": "Run west"
+          },
+          "location": {
+            "x": 1511,
+            "y": 3221,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "0e935fae-7ae2-4158-8bba-89570d58ae58",
+            "label": "Catch Embertail Jerboa",
+            "icon": 1511,
+            "description": "32 jerboa for 46 Hunter\n(62 more with Huntsman for 57)\nHunter Rumours unlocked!"
+          },
+          "location": {
+            "x": 1516,
+            "y": 3048,
+            "plane": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "ebbde820-0a7f-4825-94b6-d9df3c75b80b",
+      "name": "Rumours and Wealthy Citizens",
+      "description": "",
+      "items": [
+        {
+          "customItem": {
+            "id": "adc16dfa-95c3-49d9-bd0e-fc2dca2573d1",
+            "label": "Quetzal to Civitas",
+            "icon": 1504,
+            "description": "HOTFOOT & BARBARIANS CHECK NEXT STEP"
+          },
+          "location": {
+            "x": 1585,
+            "y": 3055,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "79a77141-05c3-4387-a671-c83c5480a68b",
+            "label": "Enter Yamas Lair",
+            "icon": 1459,
+            "description": "SKIP WITH HOTFOOT. HUNTER RUMOURS FOR 8 MINUTES INSTEAD\nGet 32 Agility\nBGs get 55 Mining for 32 Agility"
+          },
+          "location": {
+            "x": 1665,
+            "y": 3139,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "643e462c-cae0-4ccb-863f-a943cc7eda34",
+            "label": "GET 34 THIEVING",
+            "icon": 1448,
+            "description": ""
+          },
+          "location": {
+            "x": 1678,
+            "y": 3115,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "249a4aa6-2a17-4599-8118-aba99820ea05",
+            "label": "BANK",
+            "icon": 1453,
+            "description": "Deposit all\nTake coins\nBronze full helm\nShears & spade\n(4 Shrimp)"
+          },
+          "location": {
+            "x": 1647,
+            "y": 3115,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "85b94c76-ca9f-4a2d-9aa7-d7374e09055d",
+            "label": "Run to Quetzal",
+            "icon": 1504,
+            "description": ""
+          },
+          "location": {
+            "x": 1700,
+            "y": 3143,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "268d72a6-dd97-461b-aad4-4ec48e494120",
+            "label": "Quetzal to Aldarin",
+            "icon": 1504,
+            "description": ""
+          },
+          "location": {
+            "x": 1389,
+            "y": 2900,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1935,
+          "note": "Use Bronze helm on Hat stand at backstage entrance",
+          "location": {
+            "x": 1413,
+            "y": 2938,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "2a7bdad1-739d-45ec-9f50-ca48ff51fe7b",
+            "label": "Buy Steel pickaxe",
+            "icon": 1492,
+            "description": ""
+          },
+          "location": {
+            "x": 1400,
+            "y": 2867,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1795,
+          "location": {
+            "x": 1423,
+            "y": 2876,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "6cf7cbe1-6bd2-4424-80a5-8edc8e2e23bf",
+            "label": "Go to Zanaris",
+            "icon": 1504,
+            "description": "Run to Chaeldar\nPick a Slayer task\nBuy Enchanted gem\nBuy Spiny helmet\nBuy Anti-dragon shield\nCheck your task\nDrop the gem"
+          },
+          "location": {
+            "x": 1359,
+            "y": 2944,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "a451b151-0943-4d27-bc1f-2155fe1e4fdb",
+            "label": "Fairy ring AJP",
+            "icon": 1504,
+            "description": ""
+          },
+          "location": {
+            "x": 1649,
+            "y": 3012,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 4497,
+          "location": {
+            "x": 1648,
+            "y": 3062,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 5502,
+          "note": "Get 3 Potato seeds",
+          "location": {
+            "x": 1585,
+            "y": 3093,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "a7686838-f3ce-46b8-b728-f0ce7497cb68",
+            "label": "Take rake from Leprechaun",
+            "description": ""
+          },
+          "location": {
+            "x": 1590,
+            "y": 3100,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "77e02f6e-6dac-4ae5-b569-45902514252e",
+            "label": "Buy 2 compost",
+            "icon": 1506,
+            "description": "And seed dibber"
+          },
+          "location": {
+            "x": 1594,
+            "y": 3104,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "0d821324-defb-4575-a226-41c27a44f501",
+            "label": "Plant a potato seed",
+            "icon": 1501,
+            "description": "Pay to protect it\nDeposit tools at Leprechaun"
+          },
+          "location": {
+            "x": 1586,
+            "y": 3104,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1214,
+          "location": {
+            "x": 1563,
+            "y": 3111,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 4820,
+          "note": "Get 800 Coins From  Coin Pouches",
+          "location": {
+            "x": 1626,
+            "y": 3111,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "2a7a7a0a-46f7-4330-882d-5012e7d36b0e",
+            "label": "Bank",
+            "icon": 1453,
+            "description": "Deposit all\nTake coins"
+          },
+          "location": {
+            "x": 1647,
+            "y": 3118,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 3877,
+          "location": {
+            "x": 1681,
+            "y": 3107,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 3862,
+          "location": {
+            "x": 1681,
+            "y": 3107,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 3863
+        },
+        {
+          "taskId": 3885,
+          "location": {
+            "x": 1669,
+            "y": 3093,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 3886,
+          "location": {
+            "x": 1636,
+            "y": 3102,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 3884,
+          "note": "Get 66 Thieving\n(Get 70 Thieving)",
+          "location": {
+            "x": 1637,
+            "y": 3123,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1955
+        },
+        {
+          "taskId": 2655
+        },
+        {
+          "customItem": {
+            "id": "79b0120e-4462-495d-9bbc-89609cdf552c",
+            "label": "Quetzal to Hunter Guild",
+            "icon": 1504,
+            "description": ""
+          },
+          "location": {
+            "x": 1700,
+            "y": 3143,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "156a4cf0-70e1-45be-9f59-bbe320a48277",
+            "label": "Bank",
+            "icon": 1453,
+            "description": "Deposit all\nTake Bird snare\n3 Box traps\nButterfly net"
+          },
+          "location": {
+            "x": 1541,
+            "y": 3039,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "ebf9538b-911c-4910-8f8d-663491618ecd",
+            "label": "Complete 4 Novice rumours",
+            "icon": 1511,
+            "description": "Use Gillman\nGet 57 Hunter"
+          },
+          "location": {
+            "x": 1557,
+            "y": 3047,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 3821,
+          "note": "Claim Whistle blueprint on top\nMake Whistle using Willow logs",
+          "location": {
+            "x": 1558,
+            "y": 3047,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 3822,
+          "note": "(Use Ornus until Pyre fox)\n(Switch to Cervus)\n(Get 72 Hunter)"
+        },
+        {
+          "taskId": 3860,
+          "note": "Buy Teasing stick from Imia\n(Use Aco until Sunlight antelopes)\n(Switch to Teco)\n(Buy 100 Butterfly jars)\n(Store your Moonlight moths)",
+          "location": {
+            "x": 1557,
+            "y": 3048,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 3823,
+          "note": "(Upgrade whistle with Yew logs)"
+        },
+        {
+          "customItem": {
+            "id": "7a7a1f37-bb92-4816-8f82-bba5bba683e9",
+            "label": "Unlock your Tier 3 Relic and Karamja",
+            "icon": 1454,
+            "description": ""
+          },
+          "location": {
+            "x": 1557,
+            "y": 3049,
+            "plane": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "a7dcba85-6fec-4fa9-8c32-fc0967f8fb4e",
+      "name": "Prayer and High alchemy",
+      "description": "",
+      "items": [
+        {
+          "customItem": {
+            "id": "22280ed7-8acd-454b-ba65-91b4f4450d66",
+            "label": "Bank",
+            "icon": 1453,
+            "description": "Deposit all\nTake coins\nQuetzal whistle\n10 Quetzal feed\n4 Jugs of wine\n(Bronze pickaxe)"
+          },
+          "location": {
+            "x": 1541,
+            "y": 3040,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "fb8943ce-1b81-4f24-a320-e41b7dcb1cd7",
+            "label": "Drink the wine",
+            "icon": 1479,
+            "description": "Fill Jugs with water"
+          },
+          "location": {
+            "x": 1670,
+            "y": 2974,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "81690aa1-de27-4b3c-8bd2-d9842e8260d0",
+            "label": "Ribbiting Tale of Lily Pad Labour Dispute",
+            "icon": 1454,
+            "description": ""
+          },
+          "location": {
+            "x": 1683,
+            "y": 2976,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "01a9a726-831d-4788-a0cf-0c3c9b64fb56",
+            "label": "Mine 4 clay",
+            "icon": 1456,
+            "description": "Make Soft clay\nDrop the jugs"
+          },
+          "location": {
+            "x": 1750,
+            "y": 2965,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "5c5070dc-0b97-469a-baef-7e3477a434fe",
+            "label": "Buy 3 Limestone Bricks",
+            "icon": 1517,
+            "description": ""
+          },
+          "location": {
+            "x": 1744,
+            "y": 2977,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "158bb9ef-24e6-4ddb-91a4-100f6d13d07b",
+            "label": "Run to Sunset Coast",
+            "description": "Buy Mithril full helm\nBuy Addy full helm"
+          },
+          "location": {
+            "x": 1514,
+            "y": 2972,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "5efb6e21-f952-427f-9885-04e0c9535c16",
+            "label": "Charter ship to Civitas",
+            "icon": 1504,
+            "description": "Buy 15 Pineapples"
+          },
+          "location": {
+            "x": 1742,
+            "y": 3136,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "0ae756ce-0ea8-461e-96d5-d3e17a956ea1",
+            "label": "Bank",
+            "icon": 1453,
+            "description": "Deposit pineapples\nDeposit full helms"
+          },
+          "location": {
+            "x": 1779,
+            "y": 3094,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "fd804a79-0fbf-47e9-aecd-3ca23aa55516",
+            "label": "Buy a Rune mace",
+            "icon": 1480,
+            "description": ""
+          },
+          "location": {
+            "x": 1773,
+            "y": 3061,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1924,
+          "location": {
+            "x": 1681,
+            "y": 3144,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "748bf3f4-7eb1-4150-9a75-ba3b1324d8df",
+            "label": "Attack a dummy",
+            "icon": 1459,
+            "description": "Get 8 Attack"
+          },
+          "location": {
+            "x": 1660,
+            "y": 3150,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "791c78f0-71b9-4f9d-bed4-0775c0df4b74",
+            "label": "Buy steel platelegs",
+            "icon": 1463,
+            "description": "Mithril platelegs\nAddy platelegs\nMithril platebody\nAddy platebody\nMithril spear\nAddy spear"
+          },
+          "location": {
+            "x": 1660,
+            "y": 3141,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "fd9e9b24-2754-47a6-823c-55978021981a",
+            "label": "Bank",
+            "icon": 1453,
+            "description": "Deposit weapons and armour\nTake coins\n15 Pineapples\nDrain your Prayer"
+          },
+          "location": {
+            "x": 1647,
+            "y": 3119,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "9054cd06-8832-40d3-aba6-1c9677bcf6df",
+            "label": "Buy 2 Bucket packs",
+            "icon": 1506,
+            "description": "Store at Leprechaun"
+          },
+          "location": {
+            "x": 1594,
+            "y": 3104,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "886562c8-d8d4-464f-b32f-aeb28bd70e3b",
+            "label": "Fill compost bin",
+            "icon": 1501,
+            "description": "Close the bin lol"
+          },
+          "location": {
+            "x": 1588,
+            "y": 3102,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "99c83da0-0d27-44ef-ba44-e758666f7fce",
+            "label": "Build the Quetzal site",
+            "icon": 1516,
+            "description": ""
+          },
+          "location": {
+            "x": 1448,
+            "y": 3108,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "37bb037a-4bdb-4900-b48e-1d92e38f6f5c",
+            "label": "Enter Cam Torum",
+            "icon": 1460,
+            "description": "Buy Steel pickaxe\nBuy Rune pickaxe\nBuy 50 Law runes"
+          },
+          "location": {
+            "x": 1436,
+            "y": 3132,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "1ffd13bd-ad06-4755-8b73-a01061207a7a",
+            "label": "Bank",
+            "icon": 1453,
+            "description": "Deposit all\nTake coins\nAnti-dragon shield (equip it)\nQuetzal whistle\n1600 Blessed bone shards\nButterfly net\n4 Jugs of wine (DO NOT DRINK)\nMithril legs, body and helm\nSteel platelegs\nAddy legs, body and helm\nSpiny helmet"
+          },
+          "location": {
+            "x": 1436,
+            "y": 3132,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "20ed2660-602c-4123-b347-693963d30fc4",
+            "label": "Quetzal to Tal Teklan",
+            "icon": 1504,
+            "description": ""
+          },
+          "location": {
+            "x": 1226,
+            "y": 3090,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 2639,
+          "location": {
+            "x": 1226,
+            "y": 3104,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "dee565d9-7917-49b7-a04a-cfca0a81b65d",
+            "label": "Buy Runes",
+            "icon": 1450,
+            "description": "500 Mind & Chaos runes\n800 Nature runes\n1500 Air, Water, Earth & Fire\n100 Cosmic runes"
+          },
+          "location": {
+            "x": 1212,
+            "y": 3120,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 5218,
+          "note": "E: Tlatli rainforest: Log balance with 40 Agility and Alacrity\nKill 15 Blue dragons\nBury bones for 30 Prayer\nKeep 6 dragonhides\nDefensive cast water spells\nLow alch nats at 21 Magic",
+          "location": {
+            "x": 1290,
+            "y": 3134,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1814
+        },
+        {
+          "taskId": 1910
+        },
+        {
+          "taskId": 1911
+        },
+        {
+          "taskId": 1894
+        },
+        {
+          "taskId": 1895,
+          "note": "Alch Steel & Mith armour"
+        },
+        {
+          "customItem": {
+            "id": "006c0866-bec6-4400-8e29-245a3934c6c7",
+            "label": "Quetzal to the Teomat",
+            "icon": 1504,
+            "description": "Keep alching, you goat"
+          },
+          "location": {
+            "x": 1437,
+            "y": 3169,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "baba2087-69da-4606-a135-c45ed5038886",
+            "label": "Bless your wine",
+            "icon": 1467,
+            "description": ""
+          },
+          "location": {
+            "x": 1435,
+            "y": 3145,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "1fa57631-d3d2-48f2-b2f2-69240aa402b9",
+            "label": "Get 50 Prayer",
+            "icon": 1467,
+            "description": ""
+          },
+          "location": {
+            "x": 1458,
+            "y": 3189,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1880,
+          "note": "Activate Superhuman Strength & Improved Reflexes",
+          "location": {
+            "x": 1450,
+            "y": 3172,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "b19a13de-2bae-4126-957e-100560746540",
+            "label": "Quetzal to Hunter Guild",
+            "icon": 1504,
+            "description": "I: Zanaris: Cosmic altar path with Alacrity"
+          },
+          "location": {
+            "x": 1585,
+            "y": 3056,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "f76bfcab-faad-492b-8ddc-b159201f8ba1",
+            "label": "Defeat a Hill Giant",
+            "icon": 1459,
+            "description": ""
+          },
+          "location": {
+            "x": 1616,
+            "y": 2974,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 5013,
+          "note": "Are you still alching?\nGet Gold bars from Eclectics\nBank, grab moulds, ball of wool, cosmics, emerald and ruby\nMake emerald ring & ruby amulet\n(BKQ to Enchanted Valley)\n(Kill Tree spirits for Rune axe)",
+          "location": {
+            "x": 1649,
+            "y": 3012,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "7a1e8d47-1bfa-4ba1-b951-a201b1924969",
+            "label": "At 49 Magic",
+            "icon": 1450,
+            "description": "Enchant ruby amulet"
+          },
+          "location": {
+            "x": 1430,
+            "y": 3324,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1925,
+          "note": "Cast Teleport to Civitas",
+          "location": {
+            "x": 1681,
+            "y": 3145,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "7c7881a8-4546-4805-899b-31a498bb87c4",
+            "label": "Kill a Guard underground",
+            "icon": 1459,
+            "description": "Defensive cast magic"
+          },
+          "location": {
+            "x": 1641,
+            "y": 3166,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "82900be9-958e-461f-9b4c-37b0d28dd1f2",
+            "label": "Buy a House",
+            "icon": 1515,
+            "description": "Teleport to House\nEnter your House\nKeep alching :)"
+          },
+          "location": {
+            "x": 1702,
+            "y": 3103,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "90a06efc-2852-4e2b-b858-ab01eb0f8175",
+            "label": "Get 55 Magic",
+            "icon": 1450,
+            "description": "Cast High alchemy"
+          },
+          "location": {
+            "x": 1422,
+            "y": 2964,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "55031557-cf35-431e-bf97-a8ca5d60e373",
+            "label": "YOU DID IT",
+            "description": ""
+          },
+          "note": "",
+          "location": {
+            "x": 1422,
+            "y": 2964,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "ce43b7a1-d6f5-41d1-876b-adb62d28bbdf",
+            "label": "Choose Combat OR Skilling route",
+            "description": ""
+          },
+          "location": {
+            "x": 1422,
+            "y": 2965,
+            "plane": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "4f9d020f-a082-42d7-9317-bd6f9f88f8b8",
+      "name": "Combat Route",
+      "description": "",
+      "items": [
+        {
+          "customItem": {
+            "id": "a8411be1-99a5-4456-b1e7-59d60a126f03",
+            "label": "Get 48 Slayer",
+            "icon": 1499,
+            "description": "Chaeldar my beloved\nYou should have\n55 Attack\n55 Strength\n55 Defence\nGrab Mixed hide boots\nKeep that green cape"
+          },
+          "location": {
+            "x": 1649,
+            "y": 3012,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "67447e51-ee35-40b8-9eb8-a5133fe2fcf2",
+            "label": "Quetzal to Cam Torum",
+            "icon": 1504,
+            "description": ""
+          },
+          "location": {
+            "x": 1448,
+            "y": 3109,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 3848,
+          "note": "Prep your supplies\nKill ~225 Sulphur Naguas\nGet Sulphur blades\nGet ~30 Runecraft passively\nGive Eyatlalli sulphurous ess",
+          "location": {
+            "x": 1436,
+            "y": 3131,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "a2b7c760-4d6b-401c-99f5-080063b8d4e2",
+            "label": "YOU DID IT",
+            "description": ""
+          },
+          "location": {
+            "x": 1436,
+            "y": 3132,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "92a04043-42f3-46cb-bc97-a6ce2dedff8f",
+            "label": "You can now do skilling route or next part",
+            "description": ""
+          },
+          "location": {
+            "x": 1436,
+            "y": 3132,
+            "plane": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "0860ec7a-168a-44fb-9ab2-24ddb8e269af",
+      "name": "Skilling route",
+      "description": "",
+      "items": [
+        {
+          "customItem": {
+            "id": "28b28f8f-0a0a-42ee-8108-5a6ee959e4d8",
+            "label": "Bank",
+            "icon": 1453,
+            "description": "Deposit all\nTake coins\nSteel pickaxe\nRune pickaxe\nTinderbox\nSeaweed\n(Steel axe)\nStaff of air (equip)"
+          },
+          "location": {
+            "x": 1401,
+            "y": 2927,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "68a180f9-417b-4ca7-9d35-043acd59f4af",
+            "label": "Quetzal to Sunset Coast",
+            "icon": 1504,
+            "description": "Skip with Barbarian Gathering"
+          },
+          "location": {
+            "x": 1548,
+            "y": 2997,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "e3775c90-1074-4322-a526-27d8cf471d6b",
+            "label": "Buy fishing rod",
+            "icon": 1473,
+            "description": "Skip with barbarian\nFly fishing rod\nLobster pot\nHarpoon\nBig fishing net\n100 bait & 2k feathers"
+          },
+          "location": {
+            "x": 1560,
+            "y": 2960,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "584b7993-254b-4b5b-ac1f-7e597a53df57",
+            "label": "Quetzal to Tal Teklan",
+            "icon": 1504,
+            "description": "F :Tlatli rainforest: Rock climb with Alacrity"
+          },
+          "location": {
+            "x": 1226,
+            "y": 3090,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1797,
+          "note": "Keep mining 1600 xp off 40\nKeep 4 iron ore\nMine with a Steel Pickaxe",
+          "location": {
+            "x": 1238,
+            "y": 3044,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 5118,
+          "note": "Drop Steel pickaxe",
+          "location": {
+            "x": 1238,
+            "y": 3048,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1798
+        },
+        {
+          "taskId": 1841,
+          "note": "Chop 3 logs along the way",
+          "location": {
+            "x": 1208,
+            "y": 3111,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "a79314fd-9b74-431e-85fe-604540f0cd3e",
+            "label": "Region tp to Karamja",
+            "icon": 1504,
+            "description": ""
+          },
+          "location": {
+            "x": 2759,
+            "y": 3179,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "565d6877-f6bb-43fd-a976-bac6302fdc07",
+            "label": "Enter Agility Arena",
+            "icon": 1497,
+            "description": "Receive an Agility Ticket\nGet 10 tickets"
+          },
+          "location": {
+            "x": 2810,
+            "y": 3192,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "b708681d-2d87-4a08-8d77-09446784e093",
+            "label": "Get 50 Agility",
+            "icon": 1497,
+            "description": "Skip for Hotfoot\nFor Final Dawn"
+          },
+          "location": {
+            "x": 2810,
+            "y": 3191,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 2144,
+          "note": "Exchange tickets for xp",
+          "location": {
+            "x": 2810,
+            "y": 3193,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1220,
+          "note": "Kill an imp",
+          "location": {
+            "x": 2855,
+            "y": 3169,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "a55d5251-9008-4ae1-ba77-cfd6c0aefc73",
+            "label": "Pick and drop 5 seaweed",
+            "icon": 1474,
+            "description": ""
+          },
+          "location": {
+            "x": 2855,
+            "y": 3169,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 2183,
+          "location": {
+            "x": 2942,
+            "y": 3152,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1834,
+          "note": "Get 20 Fishing\nLight some logs\n(Check the seaweed)",
+          "location": {
+            "x": 2907,
+            "y": 3190,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 2004
+        },
+        {
+          "taskId": 2011
+        },
+        {
+          "customItem": {
+            "id": "e567cbb3-5726-477c-a5c3-4a0bd420e464",
+            "label": "Attempt the TzHaar Fight Pit",
+            "icon": 1459,
+            "description": "Use minigame teleport"
+          },
+          "location": {
+            "x": 2855,
+            "y": 3168,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "c7d97c86-239e-4372-baea-51237b4efc62",
+            "label": "Bank",
+            "icon": 1453,
+            "description": "Deposit all\nTake coins\nWater runes\nChaos runes\nEarth runes\n10 Ixcoztic white\n(Steel axe)\n(Rune pickaxe)\nWear Anti-dragon shield"
+          },
+          "location": {
+            "x": 2855,
+            "y": 3167,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "1eb7cae9-39c2-4c3f-a0de-727c10010d82",
+            "label": "Kill a TzHaar",
+            "icon": 1459,
+            "description": "Leave the TzHaar City\nRun through hidden wall\nVisit Crandor"
+          },
+          "location": {
+            "x": 2855,
+            "y": 3169,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "824bdd6b-1a9b-4f51-a7cb-3e26551838bb",
+            "label": "Region tp to Karamja",
+            "icon": 1504,
+            "description": "Alacricy tp to Moss Island Rope swing if available"
+          },
+          "location": {
+            "x": 2759,
+            "y": 3178,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "bd6040c2-f6c7-4a7b-a57a-29dfac447f78",
+            "label": "Use the ropeswing",
+            "icon": 1518,
+            "description": ""
+          },
+          "location": {
+            "x": 2710,
+            "y": 3208,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "494115b0-c6cc-4a92-82b2-9e9a360e6419",
+            "label": "Mine some Gold ore",
+            "icon": 1456,
+            "description": ""
+          },
+          "location": {
+            "x": 2733,
+            "y": 3224,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1776,
+          "location": {
+            "x": 2755,
+            "y": 3173,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 2187,
+          "location": {
+            "x": 2755,
+            "y": 3168,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 2191,
+          "note": "Kill a Moss Giant\nRun past the 22 Agility obstacle\nUp the south stairs\nKill a Greater Demon\nDown and south\nKill a Fire Giant\nAll the way south\nKill a Steel dragon",
+          "location": {
+            "x": 2744,
+            "y": 3155,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "0c47f116-be7f-4cba-8b31-ff6e167d5a9b",
+            "label": "Region tp to Karamja",
+            "icon": 1504,
+            "description": ""
+          },
+          "location": {
+            "x": 2759,
+            "y": 3178,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "259f4dd7-bb86-4b3a-b767-fea0d721e031",
+            "label": "Use the Cart system",
+            "icon": 1504,
+            "description": ""
+          },
+          "location": {
+            "x": 2781,
+            "y": 3214,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "aa4a1d94-04bc-4a69-8f2b-0c70905568d6",
+            "label": "Bank",
+            "icon": 1453,
+            "description": "Deposit all\n(Take fishing rod)\n(Fly fishing rod)\n(Bait & feathers)"
+          },
+          "location": {
+            "x": 2852,
+            "y": 2955,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "ce6fc82c-6446-428b-bd7d-54be54e5f924",
+            "label": "Get 25 Fishing",
+            "icon": 1474,
+            "description": "Catch a Pike\nCatch 2 inventories"
+          },
+          "location": {
+            "x": 2859,
+            "y": 2972,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 2017,
+          "note": "Burn chance is ~60%",
+          "location": {
+            "x": 2853,
+            "y": 2959,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 2150,
+          "location": {
+            "x": 2858,
+            "y": 2972,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 1838
+        },
+        {
+          "customItem": {
+            "id": "781daae0-63b6-4338-bd75-0cc9c95d3440",
+            "label": "Bank",
+            "icon": 1453,
+            "description": "Deposit all\nTake coins\nChisel & Knife\nQuetzal whistle\nTeasing stick\nEarth & fire runes\nLaw & chaos runes\nTinderbox\n(Small fishing net)\n(Rune pickaxe)\n(Steel axe)"
+          },
+          "location": {
+            "x": 2853,
+            "y": 2955,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "0313fda0-6e3a-4fdc-b6af-214ad271573f",
+            "label": "Mine a red topaz",
+            "icon": 1456,
+            "description": ""
+          },
+          "location": {
+            "x": 2823,
+            "y": 3001,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 2113,
+          "location": {
+            "x": 2862,
+            "y": 2997,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "fa58cafc-4e21-4451-94dc-e854374b7678",
+            "label": "Use the stepping stones",
+            "icon": 1518,
+            "description": ""
+          },
+          "location": {
+            "x": 2864,
+            "y": 2975,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "d9f0b73e-8159-464b-8c86-e9b38604c6bd",
+            "label": "Exit Shilo",
+            "description": ""
+          },
+          "location": {
+            "x": 2867,
+            "y": 2953,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "768b1f11-0a1d-4342-8ebd-ae3ab9734b4f",
+            "label": "Visit the Cairn Isle",
+            "description": ""
+          },
+          "location": {
+            "x": 2771,
+            "y": 2979,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "fd82da0f-dbed-437a-b14c-4a94e9ea250e",
+            "label": "Trap a Horned graahk",
+            "icon": 1511,
+            "description": ""
+          },
+          "location": {
+            "x": 2787,
+            "y": 3002,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "af9924eb-055d-4fc5-80d9-fdbf9591dcf1",
+            "label": "Chop 2 logs",
+            "icon": 1519,
+            "description": "Fletch one into arrowshafts"
+          },
+          "location": {
+            "x": 2792,
+            "y": 3003,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "5ff564e2-1e8d-4c17-a033-86b2158a1152",
+            "label": "Catch some Karamabwanji",
+            "icon": 1474,
+            "description": ""
+          },
+          "location": {
+            "x": 2808,
+            "y": 3014,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "67733ca7-e9c6-4d9e-afbd-d2a240f88f17",
+            "label": "Kill a Jungle spider",
+            "icon": 1459,
+            "description": "Make a spider on a shaft\nLight some logs\nCook the spider\nDid you burn it?"
+          },
+          "location": {
+            "x": 2778,
+            "y": 3079,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "557f0017-f8aa-4e02-b0d5-f9dc46ec7c47",
+            "label": "Buy a Machete",
+            "icon": 1448,
+            "description": "Pestle and Mortar\nAntipoison"
+          },
+          "location": {
+            "x": 2767,
+            "y": 3122,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "be8c0f88-dc64-415b-8d54-0ec4798dd03b",
+            "label": "Enter Pothole dungeon",
+            "icon": 1460,
+            "description": "Kill a Jogre\nPick the bones\nEz Karamja diary"
+          },
+          "location": {
+            "x": 2825,
+            "y": 3119,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "202503be-dea0-4992-a256-aafc3864c4c9",
+            "label": "Region tp to Karamja",
+            "icon": 1504,
+            "description": ""
+          },
+          "location": {
+            "x": 2759,
+            "y": 3177,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "44201ec6-e66f-4cf1-a37a-2679d7d394e1",
+            "label": "Claim the Diary lamp",
+            "icon": 1522,
+            "description": "Use to get 27 Farming"
+          },
+          "location": {
+            "x": 2806,
+            "y": 3191,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "ea51c358-0148-4856-808b-484a6524f7ac",
+            "label": "Quetzal to Quetzacalli Gorge",
+            "icon": 1504,
+            "description": "Run north to The Darkfrost"
+          },
+          "location": {
+            "x": 1512,
+            "y": 3223,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "7c8190bf-ee05-4e41-8794-9049b6c9ae8e",
+            "label": "Kill Hueycoatl",
+            "icon": 1459,
+            "description": "Use a mass world\nUse earth spells"
+          },
+          "location": {
+            "x": 1512,
+            "y": 3284,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "2e14f947-cbcd-4024-b585-60b23d7eef48",
+            "label": "You can now do Combat route or Next part",
+            "description": ""
+          },
+          "location": {
+            "x": 2806,
+            "y": 3191,
+            "plane": 0
+          }
+        }
+      ]
+    },
+    {
+      "id": "82819a21-60a2-4825-8ace-41bf538d9dee",
+      "name": "Fire cape",
+      "description": "",
+      "items": [
+        {
+          "customItem": {
+            "id": "e37471d9-9605-480a-95f2-cfa867d57918",
+            "label": "Quetzal to Tal Teklan",
+            "icon": 1504,
+            "description": "F :Tlatli rainforest: Rock climb with Alacrity"
+          },
+          "location": {
+            "x": 1226,
+            "y": 3090,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "9f8b39ba-cce6-4bc1-9454-5fd1f38f7f80",
+            "label": "Get 55 Mining",
+            "icon": 1456,
+            "description": "Mine iron rocks"
+          },
+          "location": {
+            "x": 1234,
+            "y": 3035,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "9985bae1-7325-482d-a1f0-168d89b5ecc8",
+            "label": "Heart of Darkness",
+            "icon": 1454,
+            "description": ""
+          },
+          "location": {
+            "x": 1453,
+            "y": 3174,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "1d36024c-02ef-4997-bd2d-4e60b279b53c",
+            "label": "Defeat Amoxliatl",
+            "icon": 1459,
+            "description": "(Get Pendant of Ates)\n(Glacial Temotli)\n(Rune platebody)\n(Rune platelegs)\n(Varlamore Echo orb)"
+          },
+          "location": {
+            "x": 1694,
+            "y": 3232,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "91b60f81-f846-4812-92c7-b74fe265cb41",
+            "label": "Quetzal to Auburnvale",
+            "icon": 1504,
+            "description": ""
+          },
+          "location": {
+            "x": 1411,
+            "y": 3364,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "a871261d-27ab-4a6c-9f46-84217c2d7d80",
+            "label": "Vale Totems Miniquest",
+            "icon": 1454,
+            "description": ""
+          },
+          "location": {
+            "x": 1366,
+            "y": 3369,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "c337d300-be7d-4d85-8323-1342fcd8da79",
+            "label": "Buy adamant axe",
+            "icon": 1451,
+            "description": "Skip with Barbarian\nSkip if did tree spirits"
+          },
+          "location": {
+            "x": 1402,
+            "y": 3342,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "82bb9502-c385-4041-8011-a9b01a8df054",
+            "label": "Get 52 Fletching",
+            "icon": 1519,
+            "description": "Get 50 Woodcutting\nUse Forestry kit\nSpot to mass spawn events\n(Get Fletching knife)"
+          },
+          "location": {
+            "x": 1397,
+            "y": 3329,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "e411afa7-d4c6-491a-8447-96b2e59eaa31",
+            "label": "Get Apple tree seed",
+            "description": "Possible skip with Woodsman"
+          },
+          "location": {
+            "x": 1397,
+            "y": 3330,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "82b3450d-16c9-43b5-a879-e678076b650d",
+            "label": "Bank",
+            "icon": 1453,
+            "description": "Get coins"
+          },
+          "location": {
+            "x": 1416,
+            "y": 3354,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "1be72a92-411b-41a7-ab25-072a9e7cfccb",
+            "label": "Quetzal to Hunter guild",
+            "icon": 1504,
+            "description": ""
+          },
+          "location": {
+            "x": 1585,
+            "y": 3056,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "ebeb1b45-95ce-4da1-938c-8cbd3f88dce3",
+            "label": "Buy plant pot",
+            "icon": 1506,
+            "description": "Trowel\nWatering can"
+          },
+          "location": {
+            "x": 1594,
+            "y": 3104,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "12a4f181-c5cb-4207-ba43-114264227b1f",
+            "label": "Pick 9 sweetcorn",
+            "icon": 1501,
+            "description": ""
+          },
+          "location": {
+            "x": 1634,
+            "y": 3063,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "52ae9e14-e35a-4cdb-bdec-2b5980e7db69",
+            "label": "Fill Watering can",
+            "icon": 1501,
+            "description": "Make and water sapling"
+          },
+          "location": {
+            "x": 1654,
+            "y": 3063,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "4f5501b4-f0c3-4e31-accc-b981e0c4c5bc",
+            "label": "Region tp to Karamja",
+            "icon": 1504,
+            "description": ""
+          },
+          "location": {
+            "x": 2758,
+            "y": 3183,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "64ed3764-400e-410f-b48a-8a3c83d21ef2",
+            "label": "Plant Apple sapling",
+            "icon": 1501,
+            "description": "Protect it\nSet a timer for 192 min (~3h)\nDeposit tools at Leprechaun"
+          },
+          "location": {
+            "x": 2766,
+            "y": 3212,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "1bd217f7-8778-4353-84bd-4ac832eb1b7e",
+            "label": "Travel to Shilo",
+            "icon": 1504,
+            "description": "Shilo: Stepping stones with Alacrity"
+          },
+          "location": {
+            "x": 2781,
+            "y": 3215,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "e1f54054-3272-4681-8796-aecd1589c466",
+            "label": "Bank",
+            "icon": 1453,
+            "description": "Skip with Barbarian\nDeposit all\nTake feathers\nFly fishing rod"
+          },
+          "location": {
+            "x": 2852,
+            "y": 2955,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "29393513-631a-4e9a-8547-e3990bc4c79b",
+            "label": "Get 65 Fishing",
+            "icon": 1474,
+            "description": ""
+          },
+          "location": {
+            "x": 2859,
+            "y": 2973,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "6dc5e666-fd1e-47ac-ae3e-672149c7058f",
+            "label": "Bank",
+            "icon": 1453,
+            "description": "Deposit all\nTake chisel\nMachete\nSpade\nAntipoison (3)\n4 pike\n(Rune pickaxe)\n(Addy/rune axe)"
+          },
+          "location": {
+            "x": 2852,
+            "y": 2954,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "4aeac4d1-0c7f-494d-97e8-07122e06a24b",
+            "label": "Mine gem rocks",
+            "icon": 1470,
+            "description": "Get full inventory of cut gems\nTopaz, Opal, Jade only"
+          },
+          "location": {
+            "x": 2824,
+            "y": 3001,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "6e7d251a-f757-4706-81c9-ee52459de77f",
+            "label": "Exit Shilo",
+            "description": ""
+          },
+          "location": {
+            "x": 2875,
+            "y": 2953,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "38f56c75-694e-4c50-9d7d-a42bcd847bfa",
+            "label": "Sell gems to Safta doc",
+            "icon": 1470,
+            "description": "Keep 3 cut opal\nGet 400 Trading sticks"
+          },
+          "location": {
+            "x": 2795,
+            "y": 3067,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "a054e32d-e4d1-4bc3-b022-714bfc5cc25d",
+            "label": "Repair 1 village fence",
+            "description": ""
+          },
+          "location": {
+            "x": 2806,
+            "y": 3075,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "32473f6c-6773-4904-ac8c-d843d63e46be",
+            "label": "Talk to Murcaily",
+            "description": "Tell him you've been a good boy\nGet some Trading sticks\nEnter Hardwood grove\nCut a Teak\nCut a Mahogany"
+          },
+          "location": {
+            "x": 2816,
+            "y": 3084,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "daae04ca-0a46-4b7f-86eb-df589dc8d35c",
+            "label": "Earn 100% Favour",
+            "icon": 1522,
+            "description": "Cut dense jungle\nGet Gout Tuber\nGOOD LUCK LOL"
+          },
+          "location": {
+            "x": 2806,
+            "y": 3075,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "84cfb413-b9d0-4e1d-a892-19d33956fb70",
+            "label": "Talk to Safta Doc",
+            "description": "Exchange 3 opal and tuber\nGet an Opal machete"
+          },
+          "location": {
+            "x": 2795,
+            "y": 3066,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "b68a28cf-8457-4616-b3f8-ae20ada10866",
+            "label": "Tai Bwo Wannai Trio",
+            "icon": 1454,
+            "description": "Do Tiadeche part\nCatch a Karambwan\nApple tree should take 1-2h\nCheck when it's done\nClaim medium lamp\nUse on Runecrafting"
+          },
+          "location": {
+            "x": 2810,
+            "y": 3086,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "78e0339b-508c-4bbb-a481-4c50f8786a99",
+            "label": "52 Runecraft: Route A",
+            "icon": 1471,
+            "description": "Big net fish Cosmic talismans\nSilver bars Mining with Hotfoot\nOR Trade with Tokkul and smelt \nTiara mould at shop to the east\nCosmic Tiaras in Zanaris"
+          },
+          "location": {
+            "x": 1738,
+            "y": 3101,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "e41fbf6e-020a-477f-ac81-030c601d3e47",
+            "label": "52 Runecraft: Route B",
+            "icon": 1471,
+            "description": "Kill Sulphur naguas\nTrade essence to Eyatalli"
+          },
+          "location": {
+            "x": 1436,
+            "y": 3131,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "be6dc001-f9ed-473b-9a67-dc3f6a8150b9",
+            "label": "52 Runecraft: Route C",
+            "icon": 1471,
+            "description": "Use easier method if possible"
+          },
+          "location": {
+            "x": 1633,
+            "y": 3808,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "984b01f1-4c0b-4ad0-9622-52af947d5e9e",
+            "label": "Final dawn",
+            "icon": 1454,
+            "description": "Melee only is tough\nBut you're the GOAT\nUse lamp for 64 Ranged"
+          },
+          "location": {
+            "x": 1678,
+            "y": 3168,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "2f253609-57bf-4770-97c9-cdff894936a5",
+            "label": "Get Mixed hide armour",
+            "icon": 1462,
+            "description": ""
+          },
+          "location": {
+            "x": 1563,
+            "y": 3061,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "c9c1437a-b93d-4a63-b7bb-4c67a9903d8f",
+            "label": "Get 66 Ranged",
+            "icon": 1459,
+            "description": "Crab or Slayer"
+          },
+          "location": {
+            "x": 1353,
+            "y": 3113,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "c952415a-73b1-4170-bc2f-d7625a186106",
+            "label": "Get 74 Fletching",
+            "icon": 1519,
+            "description": "Vale Totems ftw"
+          },
+          "location": {
+            "x": 1396,
+            "y": 3330,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "f2d1c5d1-e2e4-4a98-82b2-6ecdca1ce075",
+            "label": "Get sunlight xbow",
+            "icon": 1465,
+            "description": "Get 2000 Sunlight bolts\n(91 Hunter for Moonlight bolts)"
+          },
+          "location": {
+            "x": 1746,
+            "y": 3009,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "9ae0f64e-cc66-47fb-b2d6-8b9ca887af4a",
+            "label": "Adamant Kiteshield",
+            "icon": 1466,
+            "description": "(Rune kite from Wave 2  Colo)"
+          },
+          "location": {
+            "x": 1387,
+            "y": 2870,
+            "plane": 0
+          }
+        },
+        {
+          "taskId": 2158,
+          "location": {
+            "x": 2856,
+            "y": 3168,
+            "plane": 0
+          }
+        },
+        {
+          "customItem": {
+            "id": "21a573bb-9f1b-4951-8565-f021d924207b",
+            "label": "YOU DID IT! Now go have fun",
+            "description": ""
+          },
+          "location": {
+            "x": 2856,
+            "y": 3168,
+            "plane": 0
+          }
+        }
+      ]
+    }
+  ]
+}

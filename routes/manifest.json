@@ -1,0 +1,15 @@
+[
+  {
+    "id": "laef-starting-guide",
+    "file": "laef-starting-guide.json",
+    "name": "Starting Guide",
+    "author": "LAEF",
+    "league": "Raging Echoes",
+    "description": "Comprehensive early-game route covering money-making, hunter, combat, skilling, and fire cape progression.",
+    "sections": 6,
+    "taskCount": 84,
+    "totalSteps": 252,
+    "tags": ["early-game", "hunter", "combat", "skilling", "fire-cape"],
+    "added": "2026-04-09"
+  }
+]
