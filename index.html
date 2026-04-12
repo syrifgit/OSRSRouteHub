@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OSRS Route Hub</title>
+  <title>OSRS Route Converter</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header>
     <div class="header-content">
       <div class="header-left">
-        <h1>OSRS Route Hub</h1>
-        <p class="subtitle">Curated league task routes, ready to import into any tool that supports the community data standard.</p>
+        <h1>OSRS Route Converter</h1>
+        <p class="subtitle">Convert a route's real task IDs into manually-tickable custom items, so you can walk through your route before the league goes live.</p>
       </div>
       <div class="header-right">
         <div class="theme-switcher">
@@ -26,8 +26,41 @@
   <div class="page-layout">
     <aside class="sidebar">
       <div class="sidebar-card">
+        <h2>What This Does</h2>
+        <p>Replaces every <code>taskId</code> in a route with a <code>customItem</code> that has the task's real name as the label. Notes, locations, and section structure stay exactly the same.</p>
+        <p>Why: real tasks only tick off when you actually complete them in-game. Custom items tick off manually, so you can use a converted route as a walkthrough checklist while testing.</p>
+      </div>
+
+      <div class="sidebar-card">
+        <h2>How to Use</h2>
+        <div class="import-steps">
+          <div class="step">
+            <span class="step-number">1</span>
+            <div class="step-text">
+              <strong>Paste your route JSON</strong>
+              <p>Export from any compatible tool and paste it into the input.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">2</span>
+            <div class="step-text">
+              <strong>Click Convert</strong>
+              <p>Task names are fetched from OSRSTaskHub automatically.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">3</span>
+            <div class="step-text">
+              <strong>Copy the output</strong>
+              <p>Import back into the plugin or your planner of choice.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sidebar-card">
         <h2>Compatible Tools</h2>
-        <p>Routes follow a community data standard. Import into any of these tools.</p>
+        <p>Routes follow a community data standard. Import into any of these.</p>
         <div class="tool-list">
           <a href="https://github.com/osrs-reldo/tasks-tracker-plugin" target="_blank" class="tool-link">
             Tasks Tracker Plugin
@@ -49,70 +82,52 @@
             Task Tracker
             <span class="tool-author">by SJKD</span>
           </a>
-          <a href="https://www.nerotox.dev/tools/osrs/leagues-6-route-planner" target="_blank" class="tool-link coming-soon">
-            Route Planner
-            <span class="tool-author">by Nerotox</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="sidebar-card">
-        <h2>How to Import</h2>
-        <div class="import-steps">
-          <div class="step">
-            <span class="step-number">1</span>
-            <div class="step-text">
-              <strong>Copy the route</strong>
-              <p>Click <strong>Copy JSON</strong> on any route.</p>
-            </div>
-          </div>
-          <div class="step">
-            <span class="step-number">2</span>
-            <div class="step-text">
-              <strong>Open your tool</strong>
-              <p>Plugin, web planner, etc.</p>
-            </div>
-          </div>
-          <div class="step">
-            <span class="step-number">3</span>
-            <div class="step-text">
-              <strong>Import from clipboard</strong>
-              <p>Each tool has its own import option.</p>
-            </div>
-          </div>
         </div>
       </div>
 
       <div class="sidebar-card sidebar-links">
-        <h2>Data Standard</h2>
+        <h2>Data Sources</h2>
         <a href="https://github.com/osrs-reldo/tasks-tracker-plugin/wiki/How-to-Export-Routes-to-Plugin" target="_blank">Route Import/Export Wiki</a>
-        <a href="https://github.com/osrs-reldo/tasks-tracker-plugin" target="_blank">Tasks Tracker Plugin</a>
-      </div>
-
-      <div class="sidebar-card sidebar-links">
-        <h2>Community Resources</h2>
+        <a href="https://github.com/syrifgit/OSRSTaskHub" target="_blank">OSRSTaskHub (task names)</a>
         <a href="https://pastebin.com/y0bmum7e" target="_blank">Elemental Weaknesses List</a>
       </div>
     </aside>
 
     <main>
-      <section class="filters">
-        <div class="filter-row">
-          <input type="text" id="search" placeholder="Search routes..." autocomplete="off">
-          <select id="league-filter">
-            <option value="">All Leagues</option>
-          </select>
+      <section class="converter">
+        <div class="converter-panel">
+          <label class="panel-label" for="input-json">Input route JSON</label>
+          <textarea
+            id="input-json"
+            class="json-area"
+            spellcheck="false"
+            placeholder='Paste the route JSON here. Example:&#10;{&#10;  "name": "My Route",&#10;  "taskType": "LEAGUE_5",&#10;  "sections": [ ... ]&#10;}'></textarea>
         </div>
-      </section>
 
-      <section id="route-list" class="route-list">
-        <div class="loading">Loading routes...</div>
+        <div class="converter-actions">
+          <button id="convert-btn" class="btn btn-primary" disabled>Loading task data...</button>
+          <div id="status-line" class="status-line"></div>
+        </div>
+
+        <div class="converter-panel">
+          <label class="panel-label" for="output-json">Converted route JSON</label>
+          <textarea
+            id="output-json"
+            class="json-area"
+            spellcheck="false"
+            readonly
+            placeholder="Converted output appears here."></textarea>
+          <div class="output-actions">
+            <button id="copy-btn" class="btn" disabled>Copy Output</button>
+            <button id="download-btn" class="btn" disabled>Download</button>
+          </div>
+        </div>
       </section>
     </main>
   </div>
 
   <footer>
-    <p>Routes are community-created and shared using a common data standard supported by multiple OSRS league tools.</p>
+    <p>Task names fetched from <a href="https://github.com/syrifgit/OSRSTaskHub" target="_blank">OSRSTaskHub</a>. Routes use the community data standard supported by multiple OSRS league tools.</p>
   </footer>
 
   <div id="toast" class="toast" aria-live="polite"></div>

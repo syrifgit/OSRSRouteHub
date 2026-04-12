@@ -292,6 +292,110 @@ main {
   border-color: var(--accent-hover);
 }
 
+.btn:disabled,
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn:disabled:hover,
+.btn-primary:disabled:hover {
+  background: var(--bg);
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.btn-primary:disabled:hover {
+  background: var(--accent);
+  color: var(--step-text);
+  border-color: var(--accent);
+}
+
+/* ---------- Converter ---------- */
+.converter {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.converter-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.panel-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.json-area {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-bright);
+  padding: 0.75rem;
+  font-family: "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  min-height: 220px;
+  resize: vertical;
+  transition: border-color 0.15s;
+  tab-size: 2;
+}
+
+.json-area:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.json-area[readonly] {
+  background: var(--bg-card);
+  color: var(--text);
+}
+
+.json-area::placeholder {
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.converter-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.status-line {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.status-success { color: var(--success); }
+.status-error { color: #ef4444; font-weight: 500; }
+.status-warning { color: #f59e0b; }
+.status-info { color: var(--accent); }
+
+.output-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+code {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.05rem 0.35rem;
+  font-family: "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  color: var(--text-bright);
+}
+
 /* ---------- Sections preview ---------- */
 .route-sections {
   margin-top: 0.65rem;
