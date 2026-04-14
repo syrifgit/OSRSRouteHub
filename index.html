@@ -104,9 +104,37 @@
             placeholder='Paste the route JSON here. Example:&#10;{&#10;  "name": "My Route",&#10;  "taskType": "LEAGUE_5",&#10;  "sections": [ ... ]&#10;}'></textarea>
         </div>
 
+        <div class="converter-mode">
+          <label class="panel-label">Output mode</label>
+          <div class="mode-options">
+            <label class="mode-option">
+              <input type="radio" name="mode" value="full-custom" checked>
+              <span class="mode-label">
+                <strong>Full Custom</strong>
+                <span class="mode-help">Every task becomes a custom item. Works regardless of launch state.</span>
+              </span>
+            </label>
+            <label class="mode-option">
+              <input type="radio" name="mode" value="revert-l5">
+              <span class="mode-label">
+                <strong>Revert to League 5</strong>
+                <span class="mode-help">Swap to L5 structIds where the task exists in L5. L6-only tasks become custom items with a note.</span>
+              </span>
+            </label>
+            <label class="mode-option">
+              <input type="radio" name="mode" value="upgrade-real">
+              <span class="mode-label">
+                <strong>Upgrade to League 6 Real</strong>
+                <span class="mode-help">Swap to real L6 structIds as they become known. Tasks without a real ID yet become custom items with a note.</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
         <div class="converter-actions">
           <button id="convert-btn" class="btn btn-primary" disabled>Loading task data...</button>
           <div id="status-line" class="status-line"></div>
+          <div id="detect-line" class="status-line"></div>
         </div>
 
         <div class="converter-panel">

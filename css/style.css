@@ -369,6 +369,50 @@ main {
   flex-wrap: wrap;
 }
 
+.converter-mode {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mode-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 0.6rem;
+}
+
+.mode-option {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  background: var(--bg-input);
+}
+
+.mode-option:hover {
+  border-color: var(--accent);
+}
+
+.mode-option input[type="radio"] {
+  margin-top: 0.2rem;
+  flex-shrink: 0;
+}
+
+.mode-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.85rem;
+}
+
+.mode-help {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  line-height: 1.3;
+}
+
 .status-line {
   font-size: 0.8rem;
   color: var(--text-muted);

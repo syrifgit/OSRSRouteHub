@@ -8,6 +8,8 @@
     LEAGUE_6: "https://raw.githubusercontent.com/syrifgit/OSRSTaskHub/main/leagues/league-6-demonic-pacts/LEAGUE_6.full.json",
   };
 
+  const L6_MAPPING_URL = "https://raw.githubusercontent.com/syrifgit/OSRSTaskHub/main/leagues/league-6-demonic-pacts/mappings/LEAGUE_6-mappings.json";
+
   const ICONS = {
     GENERAL_STORE: 1448, BANK: 1453, QUEST_START: 1454, MINING_SITE: 1456,
     FURNACE: 1457, ANVIL: 1458, COMBAT_TRAINING: 1459, DUNGEON: 1460,
@@ -51,11 +53,13 @@
   const copyBtn = document.getElementById("copy-btn");
   const downloadBtn = document.getElementById("download-btn");
   const statusEl = document.getElementById("status-line");
+  const detectEl = document.getElementById("detect-line");
   const toastEl = document.getElementById("toast");
 
   // ---------- State ----------
 
-  const taskMaps = {}; // league -> Map<structId, {name, description}>
+  const taskMaps = {};        // league -> Map<structId, {name, description}>
+  let mappingIndex = null;    // { list, byL5, byPrelim, byReal, byName }
   let lastOutputName = "converted-route";
 
   // ---------- Theme ----------
@@ -80,42 +84,50 @@
 
   async function loadTasks(league) {
     if (taskMaps[league]) return taskMaps[league];
-
     const cacheKey = `routehub-tasks-${league}`;
     const cached = sessionStorage.getItem(cacheKey);
     if (cached) {
       try {
-        const entries = JSON.parse(cached);
-        taskMaps[league] = new Map(entries);
+        taskMaps[league] = new Map(JSON.parse(cached));
         return taskMaps[league];
       } catch {
         sessionStorage.removeItem(cacheKey);
       }
     }
-
-    const url = LEAGUE_SOURCES[league];
-    if (!url) throw new Error(`Unknown league: ${league}`);
-
-    const res = await fetch(url);
+    const res = await fetch(LEAGUE_SOURCES[league]);
     if (!res.ok) {
       if (res.status === 404) {
-        throw new Error(`${league} task data not yet published. Try again after launch.`);
+        throw new Error(`${league} task data not yet published.`);
       }
       throw new Error(`Fetch failed for ${league}: ${res.status}`);
     }
     const tasks = await res.json();
-
     const entries = tasks.map((t) => [t.structId, { name: t.name, description: t.description }]);
     taskMaps[league] = new Map(entries);
-
-    try {
-      sessionStorage.setItem(cacheKey, JSON.stringify(entries));
-    } catch {
-      // Storage full or unavailable - keep in-memory copy only
-    }
-
+    try { sessionStorage.setItem(cacheKey, JSON.stringify(entries)); } catch {}
     return taskMaps[league];
   }
+
+  async function loadMapping() {
+    if (mappingIndex) return mappingIndex;
+    const res = await fetch(L6_MAPPING_URL);
+    if (!res.ok) throw new Error(`Mapping fetch failed: ${res.status}`);
+    const list = await res.json();
+    const byL5 = new Map();
+    const byPrelim = new Map();
+    const byReal = new Map();
+    const byName = new Map();
+    for (const m of list) {
+      if (m.league_5_structId != null) byL5.set(m.league_5_structId, m);
+      if (m.league_6_preliminary_id != null) byPrelim.set(m.league_6_preliminary_id, m);
+      if (m.league_6_real_structId != null) byReal.set(m.league_6_real_structId, m);
+      byName.set(normName(m.name), m);
+    }
+    mappingIndex = { list, byL5, byPrelim, byReal, byName };
+    return mappingIndex;
+  }
+
+  function normName(s) { return (s || "").toLowerCase().replace(/[^a-z0-9]/g, ""); }
 
   // ---------- Icon assignment ----------
 
@@ -126,40 +138,85 @@
     return undefined;
   }
 
+  // ---------- Route detection ----------
+
+  function detectRouteType(route, mapping, l5TaskMap) {
+    let l5Count = 0, prelimCount = 0, realCount = 0, unknownCount = 0, total = 0;
+    for (const section of route.sections || []) {
+      for (const item of section.items || []) {
+        if (typeof item.taskId !== "number") continue;
+        total++;
+        // Check specificity: real > preliminary > L5 (a task may appear in multiple indices)
+        if (mapping.byReal.has(item.taskId)) realCount++;
+        else if (mapping.byPrelim.has(item.taskId)) prelimCount++;
+        else if (mapping.byL5.has(item.taskId) || l5TaskMap.has(item.taskId)) l5Count++;
+        else unknownCount++;
+      }
+    }
+    const types = [];
+    if (l5Count > 0) types.push("L5");
+    if (prelimCount > 0) types.push("L6 preliminary");
+    if (realCount > 0) types.push("L6 real");
+
+    let label;
+    if (total === 0) label = "no tasks";
+    else if (types.length === 0) label = `all ${unknownCount} tasks unrecognized`;
+    else if (types.length === 1) label = types[0] + (unknownCount > 0 ? ` + ${unknownCount} unknown` : "");
+    else label = "blend: " + types.join(" + ") + (unknownCount > 0 ? ` + ${unknownCount} unknown` : "");
+
+    return { label, total, l5Count, prelimCount, realCount, unknownCount };
+  }
+
   // ---------- Conversion ----------
 
-  function convertRoute(route, taskMap) {
+  function convertRoute(route, mode, mapping, l5TaskMap) {
     const stats = {
       sections: 0,
-      tasksConverted: 0,
+      total: 0,
+      keptAsTask: 0,           // taskId retained (possibly remapped to a different scheme)
+      convertedToCustom: 0,    // taskId -> customItem
       customItemsPassthrough: 0,
-      unresolvedTasks: [],
+      remapped: 0,             // taskId value changed (e.g. L5 -> L6 real)
+      unresolved: [],          // tasks that couldn't be mapped and became custom w/ note
       dedupedIds: 0,
     };
 
-    // Pre-collect all existing customItem IDs so a converted tid-X never
-    // collides with a pre-existing id (e.g. a bank waypoint) or with an
-    // earlier converted tid that shared the same structId.
+    // Collect all existing customItem IDs so new tid-X ids don't collide.
     const usedIds = new Set();
     for (const section of route.sections || []) {
       for (const item of section.items || []) {
-        if (item.customItem && item.customItem.id) {
-          usedIds.add(item.customItem.id);
-        }
+        if (item.customItem && item.customItem.id) usedIds.add(item.customItem.id);
       }
     }
-
     function uniqueId(base) {
-      if (!usedIds.has(base)) {
-        usedIds.add(base);
-        return base;
-      }
+      if (!usedIds.has(base)) { usedIds.add(base); return base; }
       let n = 2;
       while (usedIds.has(`${base}-${n}`)) n++;
       const id = `${base}-${n}`;
       usedIds.add(id);
       stats.dedupedIds++;
       return id;
+    }
+
+    // Resolve a route item's taskId to a mapping entry (any source).
+    function lookup(taskId) {
+      return mapping.byReal.get(taskId)
+          || mapping.byPrelim.get(taskId)
+          || mapping.byL5.get(taskId)
+          || null;
+    }
+
+    // Build a custom item from whatever info we have. Preserves any extra fields on `item`.
+    function toCustom(item, label, description, note) {
+      const baseId = uniqueId(`tid-${item.taskId}`);
+      const custom = { id: baseId, label };
+      if (description) custom.description = description;
+      const icon = assignIcon(label);
+      if (icon) custom.icon = icon;
+      if (note) custom.note = note;
+      delete item.taskId;
+      item.customItem = custom;
+      stats.convertedToCustom++;
     }
 
     for (const section of route.sections || []) {
@@ -169,27 +226,60 @@
           stats.customItemsPassthrough++;
           continue;
         }
-        if (typeof item.taskId === "number") {
-          const task = taskMap.get(item.taskId);
-          const label = task ? task.name : `Task ${item.taskId}`;
-          const description = task ? task.description : "";
-          if (!task) stats.unresolvedTasks.push(item.taskId);
+        if (typeof item.taskId !== "number") continue;
+        stats.total++;
 
-          const id = uniqueId(`tid-${item.taskId}`);
+        const entry = lookup(item.taskId);
+        const fallbackL5 = l5TaskMap.get(item.taskId);
+        // Display label/description priority: mapping > L5 full.json > "Task <id>"
+        const label = entry ? entry.name : (fallbackL5 ? fallbackL5.name : `Task ${item.taskId}`);
+        const description = entry ? undefined : (fallbackL5 ? fallbackL5.description : undefined);
 
-          const newCustom = { id, label };
-          if (description) newCustom.description = description;
-          const icon = assignIcon(label);
-          if (icon) newCustom.icon = icon;
+        if (mode === "full-custom") {
+          toCustom(item, label, description);
+          continue;
+        }
 
-          delete item.taskId;
-          item.customItem = newCustom;
-          stats.tasksConverted++;
+        if (mode === "revert-l5") {
+          if (entry && entry.league_5_structId != null) {
+            if (item.taskId !== entry.league_5_structId) stats.remapped++;
+            item.taskId = entry.league_5_structId;
+            stats.keptAsTask++;
+          } else if (fallbackL5) {
+            // Already a L5 structId that isn't in the L6 mapping (L5-only task)
+            stats.keptAsTask++;
+          } else {
+            stats.unresolved.push(item.taskId);
+            toCustom(item, label, description, "No League 5 equivalent - this task does not exist in L5.");
+          }
+          continue;
+        }
+
+        if (mode === "upgrade-real") {
+          if (entry && entry.league_6_real_structId != null) {
+            if (item.taskId !== entry.league_6_real_structId) stats.remapped++;
+            item.taskId = entry.league_6_real_structId;
+            stats.keptAsTask++;
+          } else {
+            stats.unresolved.push(item.taskId);
+            const note = entry
+              ? "L6 real structId not yet published for this task. Will resolve once Jagex releases cache data."
+              : "This taskId isn't in the current L6 mapping. May have been renamed or removed on the wiki.";
+            toCustom(item, label, description, note);
+          }
+          continue;
         }
       }
     }
 
-    // Final safety check: scan for any duplicate customItem IDs and fix in place.
+    // Set output taskType based on mode
+    if (mode === "revert-l5") route.taskType = "LEAGUE_5";
+    else if (mode === "upgrade-real") route.taskType = "LEAGUE_6";
+
+    // Clear completion state so the import lands fresh
+    if (Array.isArray(route.completed) && route.completed.length > 0) route.completed = [];
+
+    // Final dedup safety pass
     const seenFinal = new Set();
     for (const section of route.sections || []) {
       for (const item of section.items || []) {
@@ -206,20 +296,26 @@
       }
     }
 
-    if (route.name && !route.name.endsWith(" (Converted)")) {
-      route.name = `${route.name} (Converted)`;
+    // Name + description trailer so users know what mode was applied
+    const modeLabel = { "full-custom": "Full Custom", "revert-l5": "Reverted to L5", "upgrade-real": "Upgraded to L6 Real" }[mode];
+    if (route.name && !route.name.includes(`(${modeLabel})`)) {
+      route.name = `${route.name} (${modeLabel})`;
     }
-    const note = "Converted from taskIds to customItems for manual walkthrough testing. Task names pulled from OSRSTaskHub.";
-    route.description = route.description ? `${route.description}\n\n${note}` : note;
-
-    if (Array.isArray(route.completed) && route.completed.length > 0) {
-      route.completed = [];
-    }
+    const noteLines = [`Converted by OSRSRouteHub - ${modeLabel} mode.`];
+    if (mode === "full-custom") noteLines.push("Every task was turned into a custom item with its name and icon preserved.");
+    else if (mode === "revert-l5") noteLines.push("Tasks with L5 equivalents use real L5 structIds. Others became custom items with notes.");
+    else if (mode === "upgrade-real") noteLines.push("Tasks with known real L6 structIds use them. Tasks waiting on real IDs became custom items.");
+    route.description = route.description ? `${route.description}\n\n${noteLines.join(" ")}` : noteLines.join(" ");
 
     return stats;
   }
 
   // ---------- UI actions ----------
+
+  function getSelectedMode() {
+    const sel = document.querySelector('input[name="mode"]:checked');
+    return sel ? sel.value : "full-custom";
+  }
 
   async function handleConvert() {
     clearStatus();
@@ -228,63 +324,55 @@
     downloadBtn.disabled = true;
 
     const raw = inputEl.value.trim();
-    if (!raw) {
-      setStatus("Paste a route JSON first.", "error");
-      return;
-    }
+    if (!raw) { setStatus("Paste a route JSON first.", "error"); return; }
 
     let route;
-    try {
-      route = JSON.parse(raw);
-    } catch (e) {
-      setStatus(`Invalid JSON: ${e.message}`, "error");
-      return;
-    }
+    try { route = JSON.parse(raw); }
+    catch (e) { setStatus(`Invalid JSON: ${e.message}`, "error"); return; }
 
-    if (!route.taskType) {
-      setStatus('Route is missing "taskType" field. Expected "LEAGUE_5" or "LEAGUE_6".', "error");
-      return;
-    }
-    if (!LEAGUE_SOURCES[route.taskType]) {
-      setStatus(`Unsupported taskType: "${route.taskType}". Supported: ${Object.keys(LEAGUE_SOURCES).join(", ")}.`, "error");
-      return;
-    }
+    if (!route.taskType) { setStatus('Route is missing "taskType" field.', "error"); return; }
     if (!Array.isArray(route.sections) || route.sections.length === 0) {
-      setStatus('Route has no sections.', "error");
-      return;
+      setStatus("Route has no sections.", "error"); return;
     }
 
     convertBtn.disabled = true;
     convertBtn.textContent = "Converting...";
 
-    let taskMap;
+    let mapping, l5TaskMap;
     try {
-      taskMap = await loadTasks(route.taskType);
+      [mapping, l5TaskMap] = await Promise.all([loadMapping(), loadTasks("LEAGUE_5")]);
     } catch (e) {
-      setStatus(`Could not load ${route.taskType} task data: ${e.message}`, "error");
+      setStatus(`Data load failed: ${e.message}`, "error");
       convertBtn.disabled = false;
       convertBtn.textContent = "Convert";
       return;
     }
 
-    const stats = convertRoute(route, taskMap);
+    // Detect input route type
+    const detection = detectRouteType(route, mapping, l5TaskMap);
+    setDetect(`Input: ${detection.label} (${detection.total} task items${detection.total ? `: L5=${detection.l5Count}, L6-prelim=${detection.prelimCount}, L6-real=${detection.realCount}, unknown=${detection.unknownCount}` : ""})`);
+
+    const mode = getSelectedMode();
+    const stats = convertRoute(route, mode, mapping, l5TaskMap);
     const pretty = JSON.stringify(route, null, 2);
     outputEl.value = pretty;
     lastOutputName = (route.name || "converted-route").replace(/[^a-z0-9\-_ ]/gi, "").trim().replace(/\s+/g, "-") || "converted-route";
 
     const parts = [
       `${stats.sections} sections`,
-      `${stats.tasksConverted} tasks converted`,
-      `${stats.customItemsPassthrough} existing customItems preserved`,
+      `${stats.total} tasks processed`,
+      `${stats.keptAsTask} kept as task${stats.remapped > 0 ? ` (${stats.remapped} remapped)` : ""}`,
+      `${stats.convertedToCustom} converted to custom`,
+      `${stats.customItemsPassthrough} existing custom items preserved`,
     ];
     if (stats.dedupedIds > 0) parts.push(`${stats.dedupedIds} duplicate IDs deduped`);
-    const ok = stats.unresolvedTasks.length === 0;
-    if (!ok) parts.push(`${stats.unresolvedTasks.length} unresolved task IDs`);
+    const ok = stats.unresolved.length === 0;
+    if (!ok) parts.push(`${stats.unresolved.length} tasks could not be mapped`);
 
     setStatus(parts.join(" - "), ok ? "success" : "warning");
     if (!ok) {
-      const preview = stats.unresolvedTasks.slice(0, 10).join(", ");
-      const more = stats.unresolvedTasks.length > 10 ? ", ..." : "";
+      const preview = stats.unresolved.slice(0, 10).join(", ");
+      const more = stats.unresolved.length > 10 ? ", ..." : "";
       console.warn(`Unresolved task IDs: ${preview}${more}`);
     }
 
@@ -300,7 +388,6 @@
       await navigator.clipboard.writeText(outputEl.value);
       toast("Copied to clipboard");
     } catch {
-      // Fallback: select + execCommand
       outputEl.select();
       try {
         document.execCommand("copy");
@@ -330,9 +417,16 @@
     if (kind) statusEl.classList.add(`status-${kind}`);
   }
 
+  function setDetect(msg) {
+    if (!detectEl) return;
+    detectEl.textContent = msg;
+    detectEl.className = "status-line status-info";
+  }
+
   function clearStatus() {
     statusEl.textContent = "";
     statusEl.className = "status-line";
+    if (detectEl) { detectEl.textContent = ""; detectEl.className = "status-line"; }
   }
 
   function toast(msg) {
@@ -342,18 +436,18 @@
     toastEl._timer = setTimeout(() => toastEl.classList.remove("show"), 2500);
   }
 
-  // ---------- Warmup: preload L5 so the Convert button is instant ----------
+  // ---------- Warmup ----------
 
   async function warmup() {
     try {
-      await loadTasks("LEAGUE_5");
+      await Promise.all([loadTasks("LEAGUE_5"), loadMapping()]);
       convertBtn.disabled = false;
       convertBtn.textContent = "Convert";
-      setStatus("Task data loaded. Paste a route and click Convert.", "info");
+      setStatus("Task data and L6 mapping loaded. Paste a route and click Convert.", "info");
     } catch (e) {
       convertBtn.disabled = false;
       convertBtn.textContent = "Convert";
-      setStatus(`Task data warmup failed: ${e.message}. The Convert button will retry on click.`, "warning");
+      setStatus(`Warmup failed: ${e.message}. Convert will retry on click.`, "warning");
     }
   }
 
@@ -364,7 +458,6 @@
     convertBtn.addEventListener("click", handleConvert);
     copyBtn.addEventListener("click", handleCopy);
     downloadBtn.addEventListener("click", handleDownload);
-    // Also allow Ctrl+Enter in the input textarea to convert
     inputEl.addEventListener("keydown", (e) => {
       if ((e.ctrlKey || e.metaKey) && e.key === "Enter") {
         e.preventDefault();
