@@ -59,7 +59,7 @@
   // ---------- State ----------
 
   const taskMaps = {};        // league -> Map<structId, {name, description}>
-  let mappingIndex = null;    // { list, byL5, byPrelim, byReal, byName }
+  let mappingIndex = null;    // { list, byL5, byPrelim, byLegacy, byReal, byName }
   let lastOutputName = "converted-route";
 
   // ---------- Theme ----------
@@ -115,15 +115,17 @@
     const list = await res.json();
     const byL5 = new Map();
     const byPrelim = new Map();
+    const byLegacy = new Map();
     const byReal = new Map();
     const byName = new Map();
     for (const m of list) {
       if (m.league_5_structId != null) byL5.set(m.league_5_structId, m);
       if (m.league_6_preliminary_id != null) byPrelim.set(m.league_6_preliminary_id, m);
+      if (m.league_6_legacy_preliminary_id != null) byLegacy.set(m.league_6_legacy_preliminary_id, m);
       if (m.league_6_real_structId != null) byReal.set(m.league_6_real_structId, m);
       byName.set(normName(m.name), m);
     }
-    mappingIndex = { list, byL5, byPrelim, byReal, byName };
+    mappingIndex = { list, byL5, byPrelim, byLegacy, byReal, byName };
     return mappingIndex;
   }
 
@@ -141,21 +143,23 @@
   // ---------- Route detection ----------
 
   function detectRouteType(route, mapping, l5TaskMap) {
-    let l5Count = 0, prelimCount = 0, realCount = 0, unknownCount = 0, total = 0;
+    let l5Count = 0, prelimCount = 0, legacyCount = 0, realCount = 0, unknownCount = 0, total = 0;
     for (const section of route.sections || []) {
       for (const item of section.items || []) {
         if (typeof item.taskId !== "number") continue;
         total++;
-        // Check specificity: real > preliminary > L5 (a task may appear in multiple indices)
+        // Check specificity: real > preliminary (current dbrow_id) > legacy placeholder > L5
         if (mapping.byReal.has(item.taskId)) realCount++;
         else if (mapping.byPrelim.has(item.taskId)) prelimCount++;
+        else if (mapping.byLegacy.has(item.taskId)) legacyCount++;
         else if (mapping.byL5.has(item.taskId) || l5TaskMap.has(item.taskId)) l5Count++;
         else unknownCount++;
       }
     }
     const types = [];
     if (l5Count > 0) types.push("L5");
-    if (prelimCount > 0) types.push("L6 preliminary");
+    if (legacyCount > 0) types.push("L6 old placeholders");
+    if (prelimCount > 0) types.push("L6 current");
     if (realCount > 0) types.push("L6 real");
 
     let label;
@@ -164,7 +168,7 @@
     else if (types.length === 1) label = types[0] + (unknownCount > 0 ? ` + ${unknownCount} unknown` : "");
     else label = "blend: " + types.join(" + ") + (unknownCount > 0 ? ` + ${unknownCount} unknown` : "");
 
-    return { label, total, l5Count, prelimCount, realCount, unknownCount };
+    return { label, total, l5Count, legacyCount, prelimCount, realCount, unknownCount };
   }
 
   // ---------- Conversion ----------
@@ -202,6 +206,7 @@
     function lookup(taskId) {
       return mapping.byReal.get(taskId)
           || mapping.byPrelim.get(taskId)
+          || mapping.byLegacy.get(taskId)
           || mapping.byL5.get(taskId)
           || null;
     }
@@ -240,30 +245,18 @@
           continue;
         }
 
-        if (mode === "revert-l5") {
-          if (entry && entry.league_5_structId != null) {
-            if (item.taskId !== entry.league_5_structId) stats.remapped++;
-            item.taskId = entry.league_5_structId;
-            stats.keptAsTask++;
-          } else if (fallbackL5) {
-            // Already a L5 structId that isn't in the L6 mapping (L5-only task)
-            stats.keptAsTask++;
-          } else {
-            stats.unresolved.push(item.taskId);
-            toCustom(item, label, description, "No League 5 equivalent - this task does not exist in L5.");
-          }
-          continue;
-        }
-
-        if (mode === "upgrade-real") {
-          if (entry && entry.league_6_real_structId != null) {
-            if (item.taskId !== entry.league_6_real_structId) stats.remapped++;
-            item.taskId = entry.league_6_real_structId;
+        if (mode === "migrate-l6") {
+          // Target: the current L6 preliminary_id (= dbrow_id). Covers routes
+          // using L5 structIds, old L6 placeholders, or already-current IDs.
+          // When real L6 structIds land we can switch target to real_structId.
+          if (entry && entry.league_6_preliminary_id != null) {
+            if (item.taskId !== entry.league_6_preliminary_id) stats.remapped++;
+            item.taskId = entry.league_6_preliminary_id;
             stats.keptAsTask++;
           } else {
             stats.unresolved.push(item.taskId);
-            const note = entry
-              ? "L6 real structId not yet published for this task. Will resolve once Jagex releases cache data."
+            const note = fallbackL5
+              ? "This L5 task has no L6 equivalent in the current mapping."
               : "This taskId isn't in the current L6 mapping. May have been renamed or removed on the wiki.";
             toCustom(item, label, description, note);
           }
@@ -273,8 +266,7 @@
     }
 
     // Set output taskType based on mode
-    if (mode === "revert-l5") route.taskType = "LEAGUE_5";
-    else if (mode === "upgrade-real") route.taskType = "LEAGUE_6";
+    if (mode === "migrate-l6") route.taskType = "LEAGUE_6";
 
     // Clear completion state so the import lands fresh
     if (Array.isArray(route.completed) && route.completed.length > 0) route.completed = [];
@@ -297,14 +289,13 @@
     }
 
     // Name + description trailer so users know what mode was applied
-    const modeLabel = { "full-custom": "Full Custom", "revert-l5": "Reverted to L5", "upgrade-real": "Upgraded to L6 Real" }[mode];
+    const modeLabel = { "full-custom": "Full Custom", "migrate-l6": "Migrated to L6" }[mode];
     if (route.name && !route.name.includes(`(${modeLabel})`)) {
       route.name = `${route.name} (${modeLabel})`;
     }
     const noteLines = [`Converted by OSRSRouteHub - ${modeLabel} mode.`];
     if (mode === "full-custom") noteLines.push("Every task was turned into a custom item with its name and icon preserved.");
-    else if (mode === "revert-l5") noteLines.push("Tasks with L5 equivalents use real L5 structIds. Others became custom items with notes.");
-    else if (mode === "upgrade-real") noteLines.push("Tasks with known real L6 structIds use them. Tasks waiting on real IDs became custom items.");
+    else if (mode === "migrate-l6") noteLines.push("L5 structIds and old preliminary placeholders were remapped to the new permanent L6 IDs. Tasks without a current L6 equivalent became custom items with notes.");
     route.description = route.description ? `${route.description}\n\n${noteLines.join(" ")}` : noteLines.join(" ");
 
     return stats;
@@ -350,7 +341,7 @@
 
     // Detect input route type
     const detection = detectRouteType(route, mapping, l5TaskMap);
-    setDetect(`Input: ${detection.label} (${detection.total} task items${detection.total ? `: L5=${detection.l5Count}, L6-prelim=${detection.prelimCount}, L6-real=${detection.realCount}, unknown=${detection.unknownCount}` : ""})`);
+    setDetect(`Input: ${detection.label} (${detection.total} task items${detection.total ? `: L5=${detection.l5Count}, L6-legacy=${detection.legacyCount}, L6-current=${detection.prelimCount}, L6-real=${detection.realCount}, unknown=${detection.unknownCount}` : ""})`);
 
     const mode = getSelectedMode();
     const stats = convertRoute(route, mode, mapping, l5TaskMap);
