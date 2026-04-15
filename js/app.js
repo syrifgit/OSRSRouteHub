@@ -59,7 +59,7 @@
   // ---------- State ----------
 
   const taskMaps = {};        // league -> Map<structId, {name, description}>
-  let mappingIndex = null;    // { list, byL5, byPrelim, byLegacy, byReal, byName }
+  let mappingIndex = null;    // { list, byL5, byPrelim, byReal, byName }
   let lastOutputName = "converted-route";
 
   // ---------- Theme ----------
@@ -115,17 +115,15 @@
     const list = await res.json();
     const byL5 = new Map();
     const byPrelim = new Map();
-    const byLegacy = new Map();
     const byReal = new Map();
     const byName = new Map();
     for (const m of list) {
       if (m.league_5_structId != null) byL5.set(m.league_5_structId, m);
       if (m.league_6_preliminary_id != null) byPrelim.set(m.league_6_preliminary_id, m);
-      if (m.league_6_legacy_preliminary_id != null) byLegacy.set(m.league_6_legacy_preliminary_id, m);
       if (m.league_6_real_structId != null) byReal.set(m.league_6_real_structId, m);
       byName.set(normName(m.name), m);
     }
-    mappingIndex = { list, byL5, byPrelim, byLegacy, byReal, byName };
+    mappingIndex = { list, byL5, byPrelim, byReal, byName };
     return mappingIndex;
   }
 
@@ -143,23 +141,21 @@
   // ---------- Route detection ----------
 
   function detectRouteType(route, mapping, l5TaskMap) {
-    let l5Count = 0, prelimCount = 0, legacyCount = 0, realCount = 0, unknownCount = 0, total = 0;
+    let l5Count = 0, prelimCount = 0, realCount = 0, unknownCount = 0, total = 0;
     for (const section of route.sections || []) {
       for (const item of section.items || []) {
         if (typeof item.taskId !== "number") continue;
         total++;
-        // Check specificity: real > preliminary (current dbrow_id) > legacy placeholder > L5
+        // Specificity: real (current dbrow_id) > preliminary (old placeholder) > L5
         if (mapping.byReal.has(item.taskId)) realCount++;
         else if (mapping.byPrelim.has(item.taskId)) prelimCount++;
-        else if (mapping.byLegacy.has(item.taskId)) legacyCount++;
         else if (mapping.byL5.has(item.taskId) || l5TaskMap.has(item.taskId)) l5Count++;
         else unknownCount++;
       }
     }
     const types = [];
     if (l5Count > 0) types.push("L5");
-    if (legacyCount > 0) types.push("L6 old placeholders");
-    if (prelimCount > 0) types.push("L6 current");
+    if (prelimCount > 0) types.push("L6 preliminary");
     if (realCount > 0) types.push("L6 real");
 
     let label;
@@ -168,7 +164,7 @@
     else if (types.length === 1) label = types[0] + (unknownCount > 0 ? ` + ${unknownCount} unknown` : "");
     else label = "blend: " + types.join(" + ") + (unknownCount > 0 ? ` + ${unknownCount} unknown` : "");
 
-    return { label, total, l5Count, legacyCount, prelimCount, realCount, unknownCount };
+    return { label, total, l5Count, prelimCount, realCount, unknownCount };
   }
 
   // ---------- Conversion ----------
@@ -206,7 +202,6 @@
     function lookup(taskId) {
       return mapping.byReal.get(taskId)
           || mapping.byPrelim.get(taskId)
-          || mapping.byLegacy.get(taskId)
           || mapping.byL5.get(taskId)
           || null;
     }
@@ -246,12 +241,12 @@
         }
 
         if (mode === "migrate-l6") {
-          // Target: the current L6 preliminary_id (= dbrow_id). Covers routes
-          // using L5 structIds, old L6 placeholders, or already-current IDs.
-          // When real L6 structIds land we can switch target to real_structId.
-          if (entry && entry.league_6_preliminary_id != null) {
-            if (item.taskId !== entry.league_6_preliminary_id) stats.remapped++;
-            item.taskId = entry.league_6_preliminary_id;
+          // Target: the current permanent L6 ID (league_6_real_structId = dbrow_id).
+          // Covers routes using L5 structIds, old L6 preliminary placeholders,
+          // or already-current IDs.
+          if (entry && entry.league_6_real_structId != null) {
+            if (item.taskId !== entry.league_6_real_structId) stats.remapped++;
+            item.taskId = entry.league_6_real_structId;
             stats.keptAsTask++;
           } else {
             stats.unresolved.push(item.taskId);
@@ -341,7 +336,7 @@
 
     // Detect input route type
     const detection = detectRouteType(route, mapping, l5TaskMap);
-    setDetect(`Input: ${detection.label} (${detection.total} task items${detection.total ? `: L5=${detection.l5Count}, L6-legacy=${detection.legacyCount}, L6-current=${detection.prelimCount}, L6-real=${detection.realCount}, unknown=${detection.unknownCount}` : ""})`);
+    setDetect(`Input: ${detection.label} (${detection.total} task items${detection.total ? `: L5=${detection.l5Count}, L6-preliminary=${detection.prelimCount}, L6-real=${detection.realCount}, unknown=${detection.unknownCount}` : ""})`);
 
     const mode = getSelectedMode();
     const stats = convertRoute(route, mode, mapping, l5TaskMap);
